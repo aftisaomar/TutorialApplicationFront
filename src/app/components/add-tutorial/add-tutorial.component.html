@@ -1,1 +1,22 @@
-<p>add-tutorial works!</p>
+<form>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Tile</label>
+      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"  name = "title" [(ngModel)] = "tutorial.title">
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label" >Description</label>
+      <input type="text" class="form-control" id="exampleInputPassword1"  name="description" [(ngModel)]="tutorial.description">
+    </div>
+
+    <button  class="btn btn-info" (click) = "saveTutorial()" [disabled]="tutorial.title?.length ==0 || tutorial.description?.length==0" >Submit</button>
+    <button  id ="clear" class="btn btn-warning" (click) = "clear()" >Add</button>
+    <h4 *ngIf="submitted" style="margin-top:20px ; text-align: center;"> Tutorial was submitted successfully ! </h4>
+</form>
+
+
+
+
+
+
+
+

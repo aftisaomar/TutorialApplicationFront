@@ -8,7 +8,7 @@ const routes: Routes = [
 
 {path:'tutorials', component: TutorialsListComponent},
 {path : 'add', component : AddTutorialComponent},
-{path : 'tutorial/:id', component : TutorialDetailsComponent},
+{path : 'tutorials/:id', component : TutorialDetailsComponent},
 {path : '', redirectTo : 'tutorials', pathMatch : 'full'}
 ];
 

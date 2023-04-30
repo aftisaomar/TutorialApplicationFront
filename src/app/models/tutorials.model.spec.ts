@@ -1,7 +1,7 @@
-import { Tutorials } from './tutorials.model';
+import { Tutorial} from './tutorial.model';
 
 describe('Tutorials', () => {
   it('should create an instance', () => {
-    expect(new Tutorials()).toBeTruthy();
+    expect(new Tutorial()).toBeTruthy();
   });
 });
