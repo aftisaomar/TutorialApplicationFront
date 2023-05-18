@@ -1,1 +1,53 @@
-<p>tutorial-details works!</p>
+<div *ngIf="viewMode; else editable">
+
+    <h4>Tutorial</h4>
+    <div>
+        <label> title : </label> {{currentTutorial.title}}
+    </div>
+    <div>
+        <label> description : </label> {{currentTutorial.description}}
+    </div>
+    <div>
+        <label>Status : </label> {{currentTutorial.published ? "Published" : "Pending"}}
+    </div>
+
+    <a class="badge badge-warning" routerLink="/tutorials/{{currentTutorial.id}}">
+        Edit
+    </a>
+
+    <div *ngIf="!currentTutorial.id">
+        Please select a tutorial !
+    </div>
+
+
+</div>
+
+
+<ng-template #editable>
+
+    <h4>Tutorial</h4>
+ 
+    <div class="mb-3">
+      <div>
+        <label for="exampleFormControlInput1" class="form-label">Title :</label>
+        <input class="form-control" [(ngModel)]="currentTutorial.title">
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Description :</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" [(ngModel)] ="currentTutorial.description"></textarea>
+      </div>
+    </div>
+
+    <b>Status : {{currentTutorial.published ? "Published" : "Unpublished"}}</b>
+
+    <div class="button">
+        <button class="badge badge-primary" (click)="publishTutorial()">Publish</button>
+        <button class="badge badge-info" (click) ="updateTutorial()">Update</button>
+        <button class="badge badge-danger" (click)="deleteTutorial()">Delete</button>
+
+        
+    </div>
+    <p>{{message}}</p>
+
+
+</ng-template>
